@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <a-extract-style>
     <NuxtLoadingIndicator />
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
-  </div>
+  </a-extract-style>
 </template>

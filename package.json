@@ -14,7 +14,7 @@
     "lintfix": "eslint . --fix && prettier --write --list-different ."
   },
   "dependencies": {
-    "@ant-design-vue/nuxt": "^1.4.2",
+    "ant-design-vue": "^4.2.3",
     "nuxt": "^3.12.4",
     "vue": "latest"
   },

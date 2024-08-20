@@ -23,9 +23,9 @@ export default defineNuxtConfig({
     "@nuxt/devtools",
     "@nuxt/eslint",
     "@nuxtjs/tailwindcss",
-    "@ant-design-vue/nuxt",
     "@pinia/nuxt",
   ],
+  plugins: ["@/plugins/antd"],
   tailwindcss: {
     cssPath: ["~/assets/css/tailwind.css", { injectPosition: "first" }],
     configPath: "tailwind.config",
