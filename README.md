@@ -4,7 +4,7 @@
 
 - Node: v20.17.0 (LTS)
 - Vue Framework: [Nuxt 4](https://nuxt.com/docs)
-- Typescript
+- Typescript: 5.5
 - UI components: [Ant Design Vue](https://antdv.com/docs/vue/introduce)
 - utility-first CSS: [Tailwind CSS](https://tailwindcss.com/docs/installation)
 - State management: [pinia](https://pinia.vuejs.org/introduction.html)
