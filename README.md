@@ -1,5 +1,4 @@
-# Yappli FE
-
+# Nuxt sample
 ## Tech
 
 - Vue Framework: [Nuxt 4](https://nuxt.com/docs)
