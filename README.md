@@ -1,5 +1,4 @@
-# Yappli FE
-
+# Nuxt sample
 ## Tech
 
 - Node: v20.17.0 (LTS)
