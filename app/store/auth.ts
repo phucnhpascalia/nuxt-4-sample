@@ -1,34 +1,28 @@
 import { defineStore } from "pinia";
 
-interface UserPayloadInterface {
+export type UserLoginParams = {
   username: string;
   password: string;
-}
+};
+
+type AuthResponse = {
+  token: string;
+};
 
 export const useAuthStore = defineStore("auth", {
   state: () => ({
     authenticated: false,
-    loading: false,
   }),
   actions: {
-    async authenticateUser({ username, password }: UserPayloadInterface) {
-      // useFetch from nuxt 3
-      const { data, pending }: any = await useFetch(
-        "https://dummyjson.com/auth/login",
-        {
-          method: "post",
-          headers: { "Content-Type": "application/json" },
-          body: {
-            username,
-            password,
-          },
-        }
-      );
-      this.loading = pending;
+    async authenticateUser(data: UserLoginParams) {
+      const res = await $fetch<AuthResponse>("/api/auth/login", {
+        method: "POST",
+        body: data,
+      });
 
-      if (data.value) {
+      if (res) {
         const token = useCookie("accessToken");
-        token.value = data?.value?.token;
+        token.value = res?.token;
         this.authenticated = true;
       }
     },

@@ -39,11 +39,11 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     // Private keys are only available on the server
+    apiBase: process.env.NUXT_API_SERVER_BASE,
     apiServerToken: process.env.NUXT_API_SERVER_TOKEN,
+    authServer: process.env.NUXT_AUTH_SERVER_BASE,
 
     // Public keys that are exposed to the client
-    public: {
-      apiBase: process.env.NUXT_PUBLIC_API_BASE,
-    },
+    public: {},
   },
 });

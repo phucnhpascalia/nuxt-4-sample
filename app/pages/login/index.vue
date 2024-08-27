@@ -1,6 +1,9 @@
 <script lang="ts" setup>
 import { storeToRefs } from "pinia";
-import { useAuthStore } from "~/store/auth";
+import { useAuthStore, type UserLoginParams } from "~/store/auth";
+import type { Rule } from "ant-design-vue/es/form";
+import type { UnwrapRef } from "vue";
+import type { ValidateErrorEntity } from "ant-design-vue/es/form/interface";
 
 definePageMeta({
   layout: false,
@@ -10,18 +13,43 @@ const { authenticateUser } = useAuthStore();
 // make authenticated state reactive with storeToRefs
 const { authenticated } = storeToRefs(useAuthStore());
 
-const user = reactive({
+const formRef = ref();
+const formState: UnwrapRef<UserLoginParams> = reactive({
   username: "emilys",
   password: "emilyspass",
 });
+const rules: Record<string, Rule[]> = {
+  username: [
+    {
+      required: true,
+      message: "Please input your username!",
+      trigger: "change",
+    },
+  ],
+  password: [
+    {
+      required: true,
+      message: "Please input your password!",
+      trigger: "change",
+    },
+  ],
+};
+
 const router = useRouter();
 
-const login = async () => {
-  await authenticateUser(user); // call authenticateUser and pass the user object
-  // redirect to homepage if user is authenticated
-  if (authenticated) {
-    router.push("/");
-  }
+const onSubmit = async () => {
+  formRef.value
+    .validate()
+    .then(async () => {
+      await authenticateUser(formState); // call authenticateUser and pass the user object
+      // redirect to homepage if user is authenticated
+      if (authenticated) {
+        router.push("/");
+      }
+    })
+    .catch((error: ValidateErrorEntity<UserLoginParams>) => {
+      console.log("error", error);
+    });
 };
 </script>
 
@@ -40,35 +68,23 @@ const login = async () => {
       </div>
       <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <a-form
-          name="basic"
+          ref="formRef"
+          :model="formState"
+          :rules="rules"
           :label-col="{ span: 8 }"
           :wrapper-col="{ span: 16 }"
           autocomplete="off"
         >
-          <a-form-item
-            label="Username"
-            name="username"
-            :rules="[
-              { required: true, message: 'Please input your username!' },
-            ]"
-          >
-            <a-input v-model:value="user.username" />
+          <a-form-item label="Username" name="username">
+            <a-input v-model:value="formState.username" />
           </a-form-item>
 
-          <a-form-item
-            label="Password"
-            name="password"
-            :rules="[
-              { required: true, message: 'Please input your password!' },
-            ]"
-          >
-            <a-input-password v-model:value="user.password" />
+          <a-form-item label="Password" name="password">
+            <a-input-password v-model:value="formState.password" />
           </a-form-item>
 
           <a-form-item :wrapper-col="{ offset: 8, span: 16 }">
-            <a-button type="primary" html-type="submit" @click="login">
-              Submit
-            </a-button>
+            <a-button type="primary" @click="onSubmit">Submit</a-button>
           </a-form-item>
         </a-form>
       </div>

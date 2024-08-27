@@ -1,6 +1,13 @@
 import { defineStore } from "pinia";
 import type { Todo } from "~/types/todos";
 
+export type CreateOrUpdateTodoParams = {
+  id?: number;
+  name: string;
+  priority: string;
+  completed: boolean;
+};
+
 export const useTodoStore = defineStore("todo", {
   state: () => ({
     todos: [] as Todo[],
@@ -8,26 +15,37 @@ export const useTodoStore = defineStore("todo", {
   actions: {
     async getAll() {
       try {
-        const data = await $fetch<Todo[]>(
-          "https://656c4464e1e03bfd572e1e84.mockapi.io/api/todos"
-        );
+        const data = await $fetch<Todo[]>("/api/todos");
         this.todos = data;
-        return data as Todo[];
       } catch (e) {
         console.log(e);
       }
     },
-    async create(data: Todo) {
-      await $fetch("https://656c4464e1e03bfd572e1e84.mockapi.io/api/todos", {
+    async create(data: CreateOrUpdateTodoParams) {
+      return await $fetch<Todo>("/api/todos", {
         method: "POST",
         body: data,
-      })
-        .catch((e) => {
-          console.log(e);
-        })
-        .then(async () => {
-          await this.getAll();
-        });
+      }).catch((e) => {
+        console.log(e);
+      });
+    },
+    async update(data: CreateOrUpdateTodoParams) {
+      return await $fetch<Todo>("/api/todos", {
+        method: "PUT",
+        body: data,
+      }).catch((e) => {
+        console.log(e);
+      });
+    },
+    async delete(id: number) {
+      await $fetch("api/todos", {
+        method: "DELETE",
+        body: {
+          id,
+        },
+      }).catch((e) => {
+        console.log(e);
+      });
     },
   },
 });
