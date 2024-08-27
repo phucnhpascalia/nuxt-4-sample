@@ -8,6 +8,7 @@
 - UI components: [Ant Design Vue](https://antdv.com/docs/vue/introduce)
 - utility-first CSS: [Tailwind CSS](https://tailwindcss.com/docs/installation)
 - State management: [pinia](https://pinia.vuejs.org/introduction.html)
+- Testing: [Playwright](https://playwright.dev/docs/intro)
 - Package management: yarn
 
 ## Setup
