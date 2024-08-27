@@ -4,6 +4,7 @@ import { useTodoStore, type CreateOrUpdateTodoParams } from "~/store/todo";
 import type { Todo } from "~/types/todos";
 import type { Rule } from "ant-design-vue/es/form";
 import find from "lodash-es/find";
+import type { FormInstance } from "ant-design-vue";
 
 definePageMeta({
   middleware: "auth",
@@ -66,7 +67,7 @@ const rules: Record<string, Rule[]> = {
   ],
 };
 
-const formRef = ref();
+const formRef = ref<FormInstance>();
 const isEdit = ref<boolean>(false);
 const open = ref<boolean>(false);
 const formState: UnwrapRef<CreateOrUpdateTodoParams> = reactive({
@@ -98,28 +99,32 @@ const showModalEdit = (id: number) => {
 };
 
 const handleAddOrUpdate = async () => {
-  formRef.value
-    .validate()
-    .then(async () => {
-      if (formState.id != undefined) {
-        const dataUpdate = await todoStore.update(formState);
-        const todo = find(todoStore.todos, { id: formState.id });
-        if (todo) {
-          Object.assign(todo, dataUpdate);
+  if (formRef.value) {
+    formRef.value
+      .validate()
+      .then(async () => {
+        if (formState.id != undefined) {
+          const dataUpdate = await todoStore.update(formState);
+          const todo = find(todoStore.todos, { id: formState.id });
+          if (todo) {
+            Object.assign(todo, dataUpdate);
+          }
+        } else {
+          const dataCreate = await todoStore.create(formState);
+          if (dataCreate) {
+            todoStore.todos.push(dataCreate);
+          }
         }
-      } else {
-        const dataCreate = await todoStore.create(formState);
-        if (dataCreate) {
-          todoStore.todos.push(dataCreate);
-        }
-      }
 
-      formRef.value.resetFields();
-      open.value = false;
-    })
-    .catch((error: Error) => {
-      console.log("error", error);
-    });
+        if (formRef.value) {
+          formRef.value.resetFields();
+        }
+        open.value = false;
+      })
+      .catch((error: Error) => {
+        console.log("error", error);
+      });
+  }
 };
 
 const handleDelete = async (id: number) => {
@@ -129,7 +134,9 @@ const handleDelete = async (id: number) => {
 };
 
 const handleCancel = () => {
-  formRef.value.resetFields();
+  if (formRef.value) {
+    formRef.value.resetFields();
+  }
 };
 </script>
 

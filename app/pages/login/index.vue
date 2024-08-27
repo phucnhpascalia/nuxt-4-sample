@@ -15,8 +15,8 @@ const { authenticated } = storeToRefs(useAuthStore());
 
 const formRef = ref();
 const formState: UnwrapRef<UserLoginParams> = reactive({
-  username: "emilys",
-  password: "emilyspass",
+  username: "",
+  password: "",
 });
 const rules: Record<string, Rule[]> = {
   username: [
@@ -38,18 +38,20 @@ const rules: Record<string, Rule[]> = {
 const router = useRouter();
 
 const onSubmit = async () => {
-  formRef.value
-    .validate()
-    .then(async () => {
-      await authenticateUser(formState); // call authenticateUser and pass the user object
-      // redirect to homepage if user is authenticated
-      if (authenticated) {
-        router.push("/");
-      }
-    })
-    .catch((error: ValidateErrorEntity<UserLoginParams>) => {
-      console.log("error", error);
-    });
+  if (formRef.value) {
+    formRef.value
+      .validate()
+      .then(async () => {
+        await authenticateUser(formState); // call authenticateUser and pass the user object
+        // redirect to homepage if user is authenticated
+        if (authenticated) {
+          router.push("/");
+        }
+      })
+      .catch((error: ValidateErrorEntity<UserLoginParams>) => {
+        console.log("error", error);
+      });
+  }
 };
 </script>
 
@@ -76,11 +78,19 @@ const onSubmit = async () => {
           autocomplete="off"
         >
           <a-form-item label="Username" name="username">
-            <a-input v-model:value="formState.username" />
+            <a-input
+              v-model:value="formState.username"
+              placeholder="emilys"
+              autocomplete="off"
+            />
           </a-form-item>
 
           <a-form-item label="Password" name="password">
-            <a-input-password v-model:value="formState.password" />
+            <a-input-password
+              v-model:value="formState.password"
+              placeholder="emilyspass"
+              autocomplete="off"
+            />
           </a-form-item>
 
           <a-form-item :wrapper-col="{ offset: 8, span: 16 }">

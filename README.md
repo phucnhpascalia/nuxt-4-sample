@@ -2,6 +2,7 @@
 
 ## Tech
 
+- Node: v20.17.0 (LTS)
 - Vue Framework: [Nuxt 4](https://nuxt.com/docs)
 - Typescript
 - UI components: [Ant Design Vue](https://antdv.com/docs/vue/introduce)
@@ -15,7 +16,7 @@ Make sure to install the dependencies:
 
 ```bash
 # npm
-bun install
+yarn install
 ```
 
 ## Development Server
@@ -24,7 +25,7 @@ Start the development server on `http://localhost:3000`:
 
 ```bash
 # npm
-bun run dev
+yarn run dev
 ```
 
 ## Production
@@ -33,12 +34,12 @@ Build the application for production:
 
 ```bash
 # npm
-bun run build
+yarn run build
 ```
 
 Locally preview production build:
 
 ```bash
 # npm
-bun run preview
+yarn run preview
 ```
