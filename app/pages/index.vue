@@ -12,33 +12,34 @@ definePageMeta({
 
 const labelCol = { style: { width: "150px" } };
 const wrapperCol = { span: 14 };
+const i18n = useI18n();
 const columns = [
   {
-    title: "ID",
+    title: i18n.t('todo.id'),
     dataIndex: "id",
     key: "id",
     width: "10%",
   },
   {
-    title: "Name",
+    title: i18n.t('todo.name'),
     dataIndex: "name",
     key: "name",
     width: "25%",
   },
   {
-    title: "Priority",
+    title: i18n.t('todo.priority'),
     dataIndex: "priority",
     key: "priority",
     width: "25%",
   },
   {
-    title: "Completed",
+    title: i18n.t('todo.completed'),
     dataIndex: "completed",
     key: "completed",
     width: "25%",
   },
   {
-    title: "Action",
+    title: i18n.t('todo.action'),
     dataIndex: "action",
   },
 ];
@@ -147,7 +148,7 @@ const handleCancel = () => {
       style="margin-bottom: 8px"
       @click="showModalAdd"
     >
-      Add
+    {{ $t('todo.btn_add') }}
     </a-button>
 
     <a-table :data-source="todoStore.todos" :columns="columns">
@@ -176,17 +177,17 @@ const handleCancel = () => {
         <template v-else-if="column.dataIndex === 'action'">
           <div class="editable-row-operations">
             <span>
-              <a @click="showModalEdit(record.id)">Edit</a>
+              <a @click="showModalEdit(record.id)">{{ $t('todo.btn_edit') }}</a>
             </span>
             <a-divider type="vertical" />
             <span>
               <a-popconfirm
-                title="Are you sure delete this task?"
-                ok-text="Yes"
-                cancel-text="No"
+                :title="$t('todo.delete_confirm_msg')"
+                :ok-text="$t('todo.yes')"
+                :cancel-text="$t('todo.no')"
                 @confirm="handleDelete(record.id)"
               >
-                <a href="#">Delete</a>
+                <a href="#">{{ $t('todo.btn_delete') }}</a>
               </a-popconfirm>
             </span>
           </div>
@@ -209,23 +210,23 @@ const handleCancel = () => {
         :wrapper-col="wrapperCol"
         :rules="rules"
       >
-        <a-form-item ref="name" label="Name" name="name">
+        <a-form-item ref="name" :label="$t('todo.name')" name="name">
           <a-input v-model:value="formState.name" />
         </a-form-item>
-        <a-form-item label="Priority" name="priority">
+        <a-form-item :label="$t('todo.priority')" name="priority">
           <a-radio-group v-model:value="formState.priority">
-            <a-radio value="high">High</a-radio>
-            <a-radio value="medium">Medium</a-radio>
-            <a-radio value="low">Low</a-radio>
+            <a-radio value="high">{{ $t('todo.high') }}</a-radio>
+            <a-radio value="medium">{{ $t('todo.medium') }}</a-radio>
+            <a-radio value="low">{{ $t('todo.low') }}</a-radio>
           </a-radio-group>
         </a-form-item>
-        <a-form-item label="Completed" name="completed">
+        <a-form-item :label="$t('todo.completed')" name="completed">
           <a-switch v-model:checked="formState.completed" />
         </a-form-item>
       </a-form>
       <template #title>
         <div ref="modalTitleRef" style="width: 100%; cursor: move">
-          <span>{{ isEdit ? "Update Todo" : "Add Todo" }}</span>
+          <span>{{ isEdit ? $t('todo.update_title') : $t('todo.add_title') }}</span>
         </div>
       </template>
       <template #modalRender="{ originVNode }">
