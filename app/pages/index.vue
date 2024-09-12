@@ -78,7 +78,9 @@ const formState: UnwrapRef<CreateOrUpdateTodoParams> = reactive({
 });
 const todoStore = useTodoStore();
 await useAsyncData(() => todoStore.getAll());
-
+// Simulate multiple async API call
+await useAsyncData(() => todoStore.testAPI());
+await useAsyncData(() => todoStore.testAPI());
 const showModalAdd = () => {
   isEdit.value = false;
   open.value = true;
