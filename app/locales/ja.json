@@ -1,32 +1,32 @@
 {
-    "authentication": {
-        "login": "Login JA",
-        "username": "User Name JA",
-        "password": "Password JA",
-        "submit_btn": "Submit JA"
-    },
-    "menu": {
-        "nav1": "Nav 1 JA",
-        "nav2": "Nav 2 JA",
-        "nav3": "Nav 3 JA",
-        "nav4": "Nav 4 JA"
-    },
-    "todo": {
-        "btn_add": "Add JA",
-        "id": "ID JA",
-        "name": "Name JA",
-        "priority": "Priority JA",
-        "completed": "Completed JA",
-        "action": "Action JA",
-        "btn_edit": "Edit JA",
-        "btn_delete": "Delete JA",
-        "add_title": "Add Todo JA",
-        "high": "High JA",
-        "medium": "Medium JA",
-        "low": "Low JA",
-        "update_title": "Update Todo JA",
-        "delete_confirm_msg": "Are you sure delete this task? JA",
-        "yes": "Yes JA",
-        "no": "No JA"
-    }
+  "authentication": {
+    "login": "Login JA",
+    "username": "User Name JA",
+    "password": "Password JA",
+    "submit_btn": "Submit JA"
+  },
+  "menu": {
+    "nav1": "Nav 1 JA",
+    "nav2": "Nav 2 JA",
+    "nav3": "Nav 3 JA",
+    "nav4": "Nav 4 JA"
+  },
+  "todo": {
+    "btn_add": "Add JA",
+    "id": "ID JA",
+    "name": "Name JA",
+    "priority": "Priority JA",
+    "completed": "Completed JA",
+    "action": "Action JA",
+    "btn_edit": "Edit JA",
+    "btn_delete": "Delete JA",
+    "add_title": "Add Todo JA",
+    "high": "High JA",
+    "medium": "Medium JA",
+    "low": "Low JA",
+    "update_title": "Update Todo JA",
+    "delete_confirm_msg": "Are you sure delete this task? JA",
+    "yes": "Yes JA",
+    "no": "No JA"
+  }
 }

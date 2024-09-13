@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useAuthStore } from "~/store/auth";
 import LangSwitcher from "./LangSwitcher.vue";
-  
+
 const router = useRouter();
 const { logUserOut } = useAuthStore();
 
@@ -22,7 +22,7 @@ const logout = () => {
     <div class="mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-end">
         <div class="flex items-center"></div>
-        <LangSwitcher/>
+        <LangSwitcher />
         <div class="ml-4 flex items-center md:ml-6">
           <a-dropdown>
             <div class="header-avatar" style="cursor: pointer">

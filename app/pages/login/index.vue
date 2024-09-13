@@ -61,13 +61,13 @@ const onSubmit = async () => {
     class="flex flex-col justify-center px-6 py-12 lg:px-8"
     style="min-height: 100vh"
   >
-  <LangSwitcher />
+    <LangSwitcher />
     <a-layout-content>
       <div class="sm:mx-auto sm:w-full sm:max-w-sm">
         <h2
           class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
         >
-        {{ $t('authentication.login') }}
+          {{ $t("authentication.login") }}
         </h2>
       </div>
       <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -97,7 +97,7 @@ const onSubmit = async () => {
 
           <a-form-item :wrapper-col="{ offset: 8, span: 16 }">
             <a-button type="primary" @click="onSubmit">
-              {{ $t('authentication.submit_btn') }}
+              {{ $t("authentication.submit_btn") }}
             </a-button>
           </a-form-item>
         </a-form>

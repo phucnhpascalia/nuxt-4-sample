@@ -15,31 +15,31 @@ const wrapperCol = { span: 14 };
 const i18n = useI18n();
 const columns = [
   {
-    title: i18n.t('todo.id'),
+    title: i18n.t("todo.id"),
     dataIndex: "id",
     key: "id",
     width: "10%",
   },
   {
-    title: i18n.t('todo.name'),
+    title: i18n.t("todo.name"),
     dataIndex: "name",
     key: "name",
     width: "25%",
   },
   {
-    title: i18n.t('todo.priority'),
+    title: i18n.t("todo.priority"),
     dataIndex: "priority",
     key: "priority",
     width: "25%",
   },
   {
-    title: i18n.t('todo.completed'),
+    title: i18n.t("todo.completed"),
     dataIndex: "completed",
     key: "completed",
     width: "25%",
   },
   {
-    title: i18n.t('todo.action'),
+    title: i18n.t("todo.action"),
     dataIndex: "action",
   },
 ];
@@ -148,7 +148,7 @@ const handleCancel = () => {
       style="margin-bottom: 8px"
       @click="showModalAdd"
     >
-    {{ $t('todo.btn_add') }}
+      {{ $t("todo.btn_add") }}
     </a-button>
 
     <a-table :data-source="todoStore.todos" :columns="columns">
@@ -177,7 +177,7 @@ const handleCancel = () => {
         <template v-else-if="column.dataIndex === 'action'">
           <div class="editable-row-operations">
             <span>
-              <a @click="showModalEdit(record.id)">{{ $t('todo.btn_edit') }}</a>
+              <a @click="showModalEdit(record.id)">{{ $t("todo.btn_edit") }}</a>
             </span>
             <a-divider type="vertical" />
             <span>
@@ -187,7 +187,7 @@ const handleCancel = () => {
                 :cancel-text="$t('todo.no')"
                 @confirm="handleDelete(record.id)"
               >
-                <a href="#">{{ $t('todo.btn_delete') }}</a>
+                <a href="#">{{ $t("todo.btn_delete") }}</a>
               </a-popconfirm>
             </span>
           </div>
@@ -215,9 +215,9 @@ const handleCancel = () => {
         </a-form-item>
         <a-form-item :label="$t('todo.priority')" name="priority">
           <a-radio-group v-model:value="formState.priority">
-            <a-radio value="high">{{ $t('todo.high') }}</a-radio>
-            <a-radio value="medium">{{ $t('todo.medium') }}</a-radio>
-            <a-radio value="low">{{ $t('todo.low') }}</a-radio>
+            <a-radio value="high">{{ $t("todo.high") }}</a-radio>
+            <a-radio value="medium">{{ $t("todo.medium") }}</a-radio>
+            <a-radio value="low">{{ $t("todo.low") }}</a-radio>
           </a-radio-group>
         </a-form-item>
         <a-form-item :label="$t('todo.completed')" name="completed">
@@ -226,7 +226,9 @@ const handleCancel = () => {
       </a-form>
       <template #title>
         <div ref="modalTitleRef" style="width: 100%; cursor: move">
-          <span>{{ isEdit ? $t('todo.update_title') : $t('todo.add_title') }}</span>
+          <span>{{
+            isEdit ? $t("todo.update_title") : $t("todo.add_title")
+          }}</span>
         </div>
       </template>
       <template #modalRender="{ originVNode }">

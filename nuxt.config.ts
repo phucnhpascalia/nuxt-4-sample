@@ -56,22 +56,22 @@ export default defineNuxtConfig({
   },
 
   i18n: {
-    langDir: 'locales',
-    strategy: 'no_prefix',
-    defaultLocale: 'en',
+    langDir: "locales",
+    strategy: "no_prefix",
+    defaultLocale: "en",
     locales: [
       {
-        code: 'en',
-        name: 'English',
-        file: 'en.json'
+        code: "en",
+        name: "English",
+        file: "en.json",
       },
       {
-        code: 'ja',
-        name: 'Japanese',
-        file: 'ja.json'
-      }
-    ]
+        code: "ja",
+        name: "Japanese",
+        file: "ja.json",
+      },
+    ],
   },
 
-  compatibilityDate: "2024-09-04"
+  compatibilityDate: "2024-09-04",
 });

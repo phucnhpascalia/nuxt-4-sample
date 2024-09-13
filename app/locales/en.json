@@ -1,32 +1,32 @@
 {
-    "authentication": {
-        "login": "Login",
-        "username": "User Name",
-        "password": "Password",
-        "submit_btn": "Submit"
-    },
-    "menu": {
-        "nav1": "Nav 1",
-        "nav2": "Nav 2",
-        "nav3": "Nav 3",
-        "nav4": "Nav 4"
-    },
-    "todo": {
-        "btn_add": "Add",
-        "id": "ID",
-        "name": "Name",
-        "priority": "Priority",
-        "completed": "Completed",
-        "action": "Action",
-        "btn_edit": "Edit",
-        "btn_delete": "Delete",
-        "add_title": "Add Todo",
-        "high": "High",
-        "medium": "Medium",
-        "low": "Low",
-        "update_title": "Update Todo",
-        "delete_confirm_msg": "Are you sure delete this task?",
-        "yes": "Yes",
-        "no": "No"
-    }
+  "authentication": {
+    "login": "Login",
+    "username": "User Name",
+    "password": "Password",
+    "submit_btn": "Submit"
+  },
+  "menu": {
+    "nav1": "Nav 1",
+    "nav2": "Nav 2",
+    "nav3": "Nav 3",
+    "nav4": "Nav 4"
+  },
+  "todo": {
+    "btn_add": "Add",
+    "id": "ID",
+    "name": "Name",
+    "priority": "Priority",
+    "completed": "Completed",
+    "action": "Action",
+    "btn_edit": "Edit",
+    "btn_delete": "Delete",
+    "add_title": "Add Todo",
+    "high": "High",
+    "medium": "Medium",
+    "low": "Low",
+    "update_title": "Update Todo",
+    "delete_confirm_msg": "Are you sure delete this task?",
+    "yes": "Yes",
+    "no": "No"
+  }
 }
