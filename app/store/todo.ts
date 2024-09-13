@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import type { Todo } from "~/types/todos";
+import { useNuxtApp } from "#app";
 
 export type CreateOrUpdateTodoParams = {
   id?: number;
@@ -45,6 +46,21 @@ export const useTodoStore = defineStore("todo", {
         },
       }).catch((e) => {
         console.log(e);
+      });
+    },
+    async testAPI() {
+      const { $customFetch } = useNuxtApp();
+      type TestResponse = {
+        id: number;
+        refresh_token: string;
+        email: string;
+        password: string;
+        name: string;
+        role: string;
+        avatar: string;
+      };
+      await $customFetch<TestResponse>("/api/v1/auth/profile", {
+        method: "GET",
       });
     },
   },

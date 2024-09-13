@@ -1,12 +1,14 @@
 import { defineStore } from "pinia";
+import { useNuxtApp } from "#app";
 
 export type UserLoginParams = {
   username: string;
   password: string;
 };
 
-type AuthResponse = {
-  token: string;
+export type AuthResponse = {
+  access_token: string;
+  refresh_token: string;
 };
 
 export const useAuthStore = defineStore("auth", {
@@ -15,21 +17,29 @@ export const useAuthStore = defineStore("auth", {
   }),
   actions: {
     async authenticateUser(data: UserLoginParams) {
-      const res = await $fetch<AuthResponse>("/api/auth/login", {
+      const { $customFetch } = useNuxtApp();
+      const res = await $customFetch<AuthResponse>("/api/v1/auth/login", {
         method: "POST",
-        body: data,
+        body: {
+          email: data.username,
+          password: data.password,
+        },
       });
 
       if (res) {
-        const token = useCookie("accessToken");
-        token.value = res?.token;
+        const accessToken = useCookie("accessToken");
+        accessToken.value = res?.access_token;
+        const refreshToken = useCookie("refreshToken");
+        refreshToken.value = res?.refresh_token;
         this.authenticated = true;
       }
     },
     logUserOut() {
-      const token = useCookie("accessToken");
+      const accessToken = useCookie("accessToken");
+      const refreshToken = useCookie("refreshToken");
       this.authenticated = false;
-      token.value = null; // clear the token cookie
+      accessToken.value = null;
+      refreshToken.value = null;
     },
   },
 });
