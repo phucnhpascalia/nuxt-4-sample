@@ -16,7 +16,8 @@
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier . --check",
     "lintfix": "eslint . --fix && prettier --write --list-different .",
-    "test": "playwright test"
+    "test": "playwright test",
+    "prepare": "husky"
   },
   "dependencies": {
     "@nuxtjs/i18n": "^8.5.1",
