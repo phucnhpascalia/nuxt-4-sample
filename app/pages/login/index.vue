@@ -4,6 +4,7 @@ import { useAuthStore, type UserLoginParams } from "~/store/auth";
 import type { Rule } from "ant-design-vue/es/form";
 import type { UnwrapRef } from "vue";
 import type { ValidateErrorEntity } from "ant-design-vue/es/form/interface";
+import LangSwitcher from "../../components/base/LangSwitcher.vue";
 
 definePageMeta({
   layout: false,
@@ -60,12 +61,13 @@ const onSubmit = async () => {
     class="flex flex-col justify-center px-6 py-12 lg:px-8"
     style="min-height: 100vh"
   >
+    <LangSwitcher />
     <a-layout-content>
       <div class="sm:mx-auto sm:w-full sm:max-w-sm">
         <h2
           class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
         >
-          Login
+          {{ $t("authentication.login") }}
         </h2>
       </div>
       <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -77,7 +79,7 @@ const onSubmit = async () => {
           :wrapper-col="{ span: 16 }"
           autocomplete="off"
         >
-          <a-form-item label="Username" name="username">
+          <a-form-item :label="$t('authentication.username')" name="username">
             <a-input
               v-model:value="formState.username"
               placeholder="emilys"
@@ -85,7 +87,7 @@ const onSubmit = async () => {
             />
           </a-form-item>
 
-          <a-form-item label="Password" name="password">
+          <a-form-item :label="$t('authentication.password')" name="password">
             <a-input-password
               v-model:value="formState.password"
               placeholder="emilyspass"
@@ -94,7 +96,9 @@ const onSubmit = async () => {
           </a-form-item>
 
           <a-form-item :wrapper-col="{ offset: 8, span: 16 }">
-            <a-button type="primary" @click="onSubmit">Submit</a-button>
+            <a-button type="primary" @click="onSubmit">
+              {{ $t("authentication.submit_btn") }}
+            </a-button>
           </a-form-item>
         </a-form>
       </div>

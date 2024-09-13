@@ -1,8 +1,10 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
+
   future: {
     compatibilityVersion: 4,
   },
+
   app: {
     // head
     head: {
@@ -19,13 +21,17 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
   },
+
   modules: [
     "@nuxt/devtools",
     "@nuxt/eslint",
     "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
+    "@nuxtjs/i18n",
   ],
+
   plugins: ["@/plugins/antd"],
+
   tailwindcss: {
     cssPath: ["~/assets/css/tailwind.css", { injectPosition: "first" }],
     configPath: "tailwind.config",
@@ -34,9 +40,11 @@ export default defineNuxtConfig({
     },
     config: {},
   },
+
   typescript: {
     typeCheck: true,
   },
+
   runtimeConfig: {
     // Private keys are only available on the server
     apiBase: process.env.NUXT_API_SERVER_BASE,
@@ -46,4 +54,24 @@ export default defineNuxtConfig({
     // Public keys that are exposed to the client
     public: {},
   },
+
+  i18n: {
+    langDir: "locales",
+    strategy: "no_prefix",
+    defaultLocale: "en",
+    locales: [
+      {
+        code: "en",
+        name: "English",
+        file: "en.json",
+      },
+      {
+        code: "ja",
+        name: "Japanese",
+        file: "ja.json",
+      },
+    ],
+  },
+
+  compatibilityDate: "2024-09-04",
 });
