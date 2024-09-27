@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<!-- <script lang="ts" setup>
 const onCollapse = (collapsed: boolean, type: string) => {
   console.log(collapsed, type);
 };
@@ -59,4 +59,34 @@ const selectedKeys = ref<string[]>(["1"]);
 .site-layout .site-layout-background {
   background: #fff;
 }
+</style> -->
+<template>
+  <div class="flex space-x-8">
+    <nuxt-link
+      to="/"
+      exact-active-class="text-blue-500 border-b-2 border-blue-500 pb-2"
+      class="text-gray-400 hover:text-gray-600"
+      >Dashboard</nuxt-link
+    >
+    <nuxt-link
+      to="/setting"
+      exact-active-class="text-blue-500 border-b-2 border-blue-500 pb-2"
+      class="text-gray-400 hover:text-gray-600"
+      >アプリ管理</nuxt-link
+    >
+    <nuxt-link
+      to="/user"
+      exact-active-class="text-blue-500 border-b-2 border-blue-500 pb-2"
+      class="text-gray-400 hover:text-gray-600"
+      >ユーザー管理</nuxt-link
+    >
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style scoped>
+/* Any custom styling can go here */
 </style>

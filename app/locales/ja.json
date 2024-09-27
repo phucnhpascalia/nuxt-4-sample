@@ -1,9 +1,9 @@
 {
   "authentication": {
-    "login": "Login JA",
-    "username": "User Name JA",
-    "password": "Password JA",
-    "submit_btn": "Submit JA"
+    "username": "ログインID",
+    "password": "パスワード",
+    "submit_btn": "ログイン",
+    "forget_pw": "パスワードを忘れた方はこちら"
   },
   "menu": {
     "nav1": "Nav 1 JA",

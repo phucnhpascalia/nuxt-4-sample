@@ -1,9 +1,9 @@
 {
   "authentication": {
-    "login": "Login",
-    "username": "User Name",
+    "username": "LoginID",
     "password": "Password",
-    "submit_btn": "Submit"
+    "submit_btn": "Login",
+    "forget_pw": "Forgot your password"
   },
   "menu": {
     "nav1": "Nav 1",

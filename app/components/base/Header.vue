@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<!-- <script lang="ts" setup>
 import { useAuthStore } from "~/store/auth";
 import LangSwitcher from "./LangSwitcher.vue";
 
@@ -46,4 +46,53 @@ const logout = () => {
       </div>
     </div>
   </a-layout-header>
+</template> -->
+<script>
+import Navbar from "~/components/base/SiderNav.vue";
+import { useAuthStore } from "~/store/auth";
+
+export default {
+  components: {
+    Navbar,
+  },
+};
+
+const router = useRouter();
+const { logUserOut } = useAuthStore();
+
+// const user = {
+//   name: "Tom Cook",
+//   email: "tom@example.com",
+//   imageUrl: "",
+// };
+
+
+</script>
+
+<template>
+  <nav class="bg-white shadow">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <!-- Navbar -->
+      <Navbar />
+
+      <!-- Right-side Logout button -->
+      <div>
+        <button
+          class="border border-blue-500 text-blue-500 px-4 py-1 rounded hover:bg-blue-50"
+          @click="logout"
+        >
+          ログアウト
+        </button>
+      </div>
+    </div>
+  </nav>
 </template>
+<style scoped>
+/* Any custom styling can go here */
+</style>
+<script setup>
+const logout = () => {
+  logUserOut();
+  router.push("/login");
+};
+</script>

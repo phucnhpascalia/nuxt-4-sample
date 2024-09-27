@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<!-- <script lang="ts" setup>
 import { reactive, type UnwrapRef } from "vue";
 import { useTodoStore, type CreateOrUpdateTodoParams } from "~/store/todo";
 import type { Todo } from "~/types/todos";
@@ -238,4 +238,21 @@ const handleCancel = () => {
       </template>
     </a-modal>
   </div>
+</template> -->
+<template>
+  <div>
+    <!-- Main Content -->
+    <div class="bg-white w-full">
+      <!-- Placeholder content area -->
+      <h1 class="text-center text-2xl font-semibold pt-20">Welcome to MyApp</h1>
+    </div>
+  </div>
 </template>
+
+<script>
+export default {};
+</script>
+
+<style scoped>
+/* Any custom styling can go here */
+</style>

@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <a-layout style="min-height: 100vh">
     <BaseSiderNav />
     <a-layout>
@@ -13,4 +13,34 @@
       <BaseFooter />
     </a-layout>
   </a-layout>
+</template> -->
+
+<script>
+import AppHeader from "~/components/base/Header.vue";
+import AppFooter from "~/components/base/Footer.vue";
+
+export default {
+  components: {
+    AppHeader,
+    AppFooter,
+  },
+};
+</script>
+
+<template>
+  <div class="min-h-screen bg-gray-100">
+    <!-- Header and Navbar -->
+    <AppHeader />
+    <!-- Content -->
+    <a-layout-content class="mx-auto px-5 py-10">
+      <slot></slot>
+    </a-layout-content>
+
+    <!-- Footer -->
+    <AppFooter />
+  </div>
 </template>
+
+<style scoped>
+/* Any custom styling can go here */
+</style>

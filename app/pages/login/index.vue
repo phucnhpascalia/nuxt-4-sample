@@ -57,20 +57,27 @@ const onSubmit = async () => {
 </script>
 
 <template>
-  <a-layout
-    class="flex flex-col justify-center px-6 py-12 lg:px-8"
-    style="min-height: 100vh"
-  >
-    <LangSwitcher />
+  <a-layout class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="ml-auto">
+      <LangSwitcher />
+    </div>
     <a-layout-content>
-      <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-        <h2
-          class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
-        >
-          {{ $t("authentication.login") }}
-        </h2>
-      </div>
-      <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+      <div class="bg-white p-8 rounded-lg shadow-lg w-96 mt-20">
+        <!-- Logo Section -->
+        <div class="flex flex-col items-center justify-center mb-6">
+          <div class="bg-white w-28 mb-2">
+            <img
+              src="https://s3-ap-northeast-1.amazonaws.com/poc-image/production/54081a7360e6467a2b3d023623ea49d8b8abe621d48ee8fa030d1b6f761b.png"
+              alt="Logo"
+              class="w-full h-full"
+            />
+          </div>
+          <p class="text-xl text-gray-600">
+            <span class="font-semibold">SAML SP</span> Console
+          </p>
+        </div>
+
+        <!-- Login Form -->
         <a-form
           ref="formRef"
           :model="formState"
@@ -78,28 +85,53 @@ const onSubmit = async () => {
           :label-col="{ span: 8 }"
           :wrapper-col="{ span: 16 }"
           autocomplete="off"
+          class="space-y-6"
         >
-          <a-form-item :label="$t('authentication.username')" name="username">
-            <a-input
-              v-model:value="formState.username"
-              placeholder="emilys"
-              autocomplete="off"
+          <div>
+            <label
+              for="login-id"
+              class="block text-sm font-light text-gray-700"
+              >{{ $t("authentication.username") }}</label
+            >
+            <input
+              id="login-id"
+              v-model="formState.username"
+              type="text"
+              name="login-id"
+              class="mt-1 block w-full px-3 py-2 border-b border-gray-300 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
-          </a-form-item>
+          </div>
 
-          <a-form-item :label="$t('authentication.password')" name="password">
-            <a-input-password
-              v-model:value="formState.password"
-              placeholder="emilyspass"
-              autocomplete="off"
+          <div>
+            <label
+              for="password"
+              class="block text-sm font-light text-gray-700"
+              >{{ $t("authentication.password") }}</label
+            >
+            <input
+              id="password"
+              v-model="formState.password"
+              type="password"
+              name="password"
+              class="mt-1 block w-full px-3 py-2 border-b border-gray-300 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
-          </a-form-item>
+          </div>
 
-          <a-form-item :wrapper-col="{ offset: 8, span: 16 }">
-            <a-button type="primary" @click="onSubmit">
+          <div>
+            <button
+              style="background-color: #05aceb"
+              class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              @click="onSubmit"
+            >
               {{ $t("authentication.submit_btn") }}
-            </a-button>
-          </a-form-item>
+            </button>
+          </div>
+
+          <div class="text-sm text-center">
+            <a href="#" class="font-light text-blue-500 hover:text-blue-600">{{
+              $t("authentication.forget_pw")
+            }}</a>
+          </div>
         </a-form>
       </div>
     </a-layout-content>
