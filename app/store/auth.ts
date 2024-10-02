@@ -6,7 +6,7 @@ export type UserLoginParams = {
 };
 
 type AuthResponse = {
-  token: string;
+  accessToken: string;
 };
 
 export const useAuthStore = defineStore("auth", {
@@ -22,7 +22,7 @@ export const useAuthStore = defineStore("auth", {
 
       if (res) {
         const token = useCookie("accessToken");
-        token.value = res?.token;
+        token.value = res?.accessToken;
         this.authenticated = true;
       }
     },

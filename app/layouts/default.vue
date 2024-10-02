@@ -28,7 +28,7 @@ export default {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-100">
+  <div class="min-h-screen bg-test">
     <!-- Header and Navbar -->
     <AppHeader />
     <!-- Content -->
@@ -42,5 +42,8 @@ export default {
 </template>
 
 <style scoped>
+.bg-test {
+  background-color: #e5e9ec;
+}
 /* Any custom styling can go here */
 </style>
