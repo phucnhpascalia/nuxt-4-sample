@@ -65,8 +65,6 @@ const { logUserOut } = useAuthStore();
 //   email: "tom@example.com",
 //   imageUrl: "",
 // };
-
-
 </script>
 
 <template>
@@ -87,12 +85,12 @@ const { logUserOut } = useAuthStore();
     </div>
   </nav>
 </template>
-<style scoped>
-/* Any custom styling can go here */
-</style>
 <script setup>
 const logout = () => {
   logUserOut();
   router.push("/login");
 };
 </script>
+<style scoped>
+/* Any custom styling can go here */
+</style>

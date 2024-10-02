@@ -1,26 +1,193 @@
 {
-    "applications": [
-      { "id": 1, "application_name": "Application 1", "sku": "SKU 1", "boot_codes": "abc, xyz", "enabled": 1, "created_at": "2024/10/01 00:00:00", "updated_at": "2024/10/01 00:00:00"},
-      { "id": 2, "application_name": "Application 2", "sku": "SKU 2", "boot_codes": "abc, xyz", "enabled": 1, "created_at": "2024/10/01 00:00:00", "updated_at": "2024/10/01 00:00:00"},
-      { "id": 3, "application_name": "Application 3", "sku": "SKU 3", "boot_codes": "abc, xyz", "enabled": 1, "created_at": "2024/10/01 00:00:00", "updated_at": "2024/10/01 00:00:00"},
-      { "id": 4, "application_name": "Application 4", "sku": "SKU 4", "boot_codes": "abc, xyz", "enabled": 1, "created_at": "2024/10/01 00:00:00", "updated_at": "2024/10/01 00:00:00"},
-      { "id": 5, "application_name": "Application 5", "sku": "SKU 5", "boot_codes": "abc, xyz", "enabled": 1, "created_at": "2024/10/01 00:00:00", "updated_at": "2024/10/01 00:00:00"},
-      { "id": 6, "application_name": "Application 6", "sku": "SKU 6", "boot_codes": "abc, xyz", "enabled": 1, "created_at": "2024/10/01 00:00:00", "updated_at": "2024/10/01 00:00:00"},
-      { "id": 7, "application_name": "Application 7", "sku": "SKU 7", "boot_codes": "abc, xyz", "enabled": 1, "created_at": "2024/10/01 00:00:00", "updated_at": "2024/10/01 00:00:00"},
-      { "id": 8, "application_name": "Application 8", "sku": "SKU 8", "boot_codes": "abc, xyz", "enabled": 1, "created_at": "2024/10/01 00:00:00", "updated_at": "2024/10/01 00:00:00"},
-      { "id": 9, "application_name": "Application 9", "sku": "SKU 9", "boot_codes": "abc, xyz", "enabled": 1, "created_at": "2024/10/01 00:00:00", "updated_at": "2024/10/01 00:00:00"},
-      { "id": 10, "application_name": "Application 10", "sku": "SKU 10", "boot_codes": "abc, xyz", "enabled": 1, "created_at": "2024/10/01 00:00:00", "updated_at": "2024/10/01 00:00:00"},
-      { "id": 11, "application_name": "Application 11", "sku": "SKU 11", "boot_codes": "abc, xyz", "enabled": 1, "created_at": "2024/10/01 00:00:00", "updated_at": "2024/10/01 00:00:00"},
-      { "id": 12, "application_name": "Application 12", "sku": "SKU 12", "boot_codes": "abc, xyz", "enabled": 1, "created_at": "2024/10/01 00:00:00", "updated_at": "2024/10/01 00:00:00"},
-      { "id": 13, "application_name": "Application 13", "sku": "SKU 13", "boot_codes": "abc, xyz", "enabled": 1, "created_at": "2024/10/01 00:00:00", "updated_at": "2024/10/01 00:00:00"},
-      { "id": 14, "application_name": "Application 14", "sku": "SKU 14", "boot_codes": "abc, xyz", "enabled": 1, "created_at": "2024/10/01 00:00:00", "updated_at": "2024/10/01 00:00:00"},
-      { "id": 15, "application_name": "Application 15", "sku": "SKU 15", "boot_codes": "abc, xyz", "enabled": 1, "created_at": "2024/10/01 00:00:00", "updated_at": "2024/10/01 00:00:00"},
-      { "id": 16, "application_name": "Application 16", "sku": "SKU 16", "boot_codes": "abc, xyz", "enabled": 1, "created_at": "2024/10/01 00:00:00", "updated_at": "2024/10/01 00:00:00"},
-      { "id": 17, "application_name": "Application 17", "sku": "SKU 17", "boot_codes": "abc, xyz", "enabled": 1, "created_at": "2024/10/01 00:00:00", "updated_at": "2024/10/01 00:00:00"},
-      { "id": 18, "application_name": "Application 18", "sku": "SKU 18", "boot_codes": "abc, xyz", "enabled": 1, "created_at": "2024/10/01 00:00:00", "updated_at": "2024/10/01 00:00:00"},
-      { "id": 19, "application_name": "Application 19", "sku": "SKU 19", "boot_codes": "abc, xyz", "enabled": 1, "created_at": "2024/10/01 00:00:00", "updated_at": "2024/10/01 00:00:00"},
-      { "id": 20, "application_name": "Application 20", "sku": "SKU 20", "boot_codes": "abc, xyz", "enabled": 1, "created_at": "2024/10/01 00:00:00", "updated_at": "2024/10/01 00:00:00"},
-      { "id": 21, "application_name": "Application 21", "sku": "SKU 21", "boot_codes": "abc, xyz", "enabled": 1, "created_at": "2024/10/01 00:00:00", "updated_at": "2024/10/01 00:00:00"}
-    ]
-  }
-  
+  "applications": [
+    {
+      "id": 1,
+      "application_name": "Application 1",
+      "sku": "SKU 1",
+      "boot_codes": "abc, xyz",
+      "enabled": 1,
+      "created_at": "2024/10/01 00:00:00",
+      "updated_at": "2024/10/01 00:00:00"
+    },
+    {
+      "id": 2,
+      "application_name": "Application 2",
+      "sku": "SKU 2",
+      "boot_codes": "abc, xyz",
+      "enabled": 1,
+      "created_at": "2024/10/01 00:00:00",
+      "updated_at": "2024/10/01 00:00:00"
+    },
+    {
+      "id": 3,
+      "application_name": "Application 3",
+      "sku": "SKU 3",
+      "boot_codes": "abc, xyz",
+      "enabled": 1,
+      "created_at": "2024/10/01 00:00:00",
+      "updated_at": "2024/10/01 00:00:00"
+    },
+    {
+      "id": 4,
+      "application_name": "Application 4",
+      "sku": "SKU 4",
+      "boot_codes": "abc, xyz",
+      "enabled": 1,
+      "created_at": "2024/10/01 00:00:00",
+      "updated_at": "2024/10/01 00:00:00"
+    },
+    {
+      "id": 5,
+      "application_name": "Application 5",
+      "sku": "SKU 5",
+      "boot_codes": "abc, xyz",
+      "enabled": 1,
+      "created_at": "2024/10/01 00:00:00",
+      "updated_at": "2024/10/01 00:00:00"
+    },
+    {
+      "id": 6,
+      "application_name": "Application 6",
+      "sku": "SKU 6",
+      "boot_codes": "abc, xyz",
+      "enabled": 1,
+      "created_at": "2024/10/01 00:00:00",
+      "updated_at": "2024/10/01 00:00:00"
+    },
+    {
+      "id": 7,
+      "application_name": "Application 7",
+      "sku": "SKU 7",
+      "boot_codes": "abc, xyz",
+      "enabled": 1,
+      "created_at": "2024/10/01 00:00:00",
+      "updated_at": "2024/10/01 00:00:00"
+    },
+    {
+      "id": 8,
+      "application_name": "Application 8",
+      "sku": "SKU 8",
+      "boot_codes": "abc, xyz",
+      "enabled": 1,
+      "created_at": "2024/10/01 00:00:00",
+      "updated_at": "2024/10/01 00:00:00"
+    },
+    {
+      "id": 9,
+      "application_name": "Application 9",
+      "sku": "SKU 9",
+      "boot_codes": "abc, xyz",
+      "enabled": 1,
+      "created_at": "2024/10/01 00:00:00",
+      "updated_at": "2024/10/01 00:00:00"
+    },
+    {
+      "id": 10,
+      "application_name": "Application 10",
+      "sku": "SKU 10",
+      "boot_codes": "abc, xyz",
+      "enabled": 1,
+      "created_at": "2024/10/01 00:00:00",
+      "updated_at": "2024/10/01 00:00:00"
+    },
+    {
+      "id": 11,
+      "application_name": "Application 11",
+      "sku": "SKU 11",
+      "boot_codes": "abc, xyz",
+      "enabled": 1,
+      "created_at": "2024/10/01 00:00:00",
+      "updated_at": "2024/10/01 00:00:00"
+    },
+    {
+      "id": 12,
+      "application_name": "Application 12",
+      "sku": "SKU 12",
+      "boot_codes": "abc, xyz",
+      "enabled": 1,
+      "created_at": "2024/10/01 00:00:00",
+      "updated_at": "2024/10/01 00:00:00"
+    },
+    {
+      "id": 13,
+      "application_name": "Application 13",
+      "sku": "SKU 13",
+      "boot_codes": "abc, xyz",
+      "enabled": 1,
+      "created_at": "2024/10/01 00:00:00",
+      "updated_at": "2024/10/01 00:00:00"
+    },
+    {
+      "id": 14,
+      "application_name": "Application 14",
+      "sku": "SKU 14",
+      "boot_codes": "abc, xyz",
+      "enabled": 1,
+      "created_at": "2024/10/01 00:00:00",
+      "updated_at": "2024/10/01 00:00:00"
+    },
+    {
+      "id": 15,
+      "application_name": "Application 15",
+      "sku": "SKU 15",
+      "boot_codes": "abc, xyz",
+      "enabled": 1,
+      "created_at": "2024/10/01 00:00:00",
+      "updated_at": "2024/10/01 00:00:00"
+    },
+    {
+      "id": 16,
+      "application_name": "Application 16",
+      "sku": "SKU 16",
+      "boot_codes": "abc, xyz",
+      "enabled": 1,
+      "created_at": "2024/10/01 00:00:00",
+      "updated_at": "2024/10/01 00:00:00"
+    },
+    {
+      "id": 17,
+      "application_name": "Application 17",
+      "sku": "SKU 17",
+      "boot_codes": "abc, xyz",
+      "enabled": 1,
+      "created_at": "2024/10/01 00:00:00",
+      "updated_at": "2024/10/01 00:00:00"
+    },
+    {
+      "id": 18,
+      "application_name": "Application 18",
+      "sku": "SKU 18",
+      "boot_codes": "abc, xyz",
+      "enabled": 1,
+      "created_at": "2024/10/01 00:00:00",
+      "updated_at": "2024/10/01 00:00:00"
+    },
+    {
+      "id": 19,
+      "application_name": "Application 19",
+      "sku": "SKU 19",
+      "boot_codes": "abc, xyz",
+      "enabled": 1,
+      "created_at": "2024/10/01 00:00:00",
+      "updated_at": "2024/10/01 00:00:00"
+    },
+    {
+      "id": 20,
+      "application_name": "Application 20",
+      "sku": "SKU 20",
+      "boot_codes": "abc, xyz",
+      "enabled": 1,
+      "created_at": "2024/10/01 00:00:00",
+      "updated_at": "2024/10/01 00:00:00"
+    },
+    {
+      "id": 21,
+      "application_name": "Application 21",
+      "sku": "SKU 21",
+      "boot_codes": "abc, xyz",
+      "enabled": 1,
+      "created_at": "2024/10/01 00:00:00",
+      "updated_at": "2024/10/01 00:00:00"
+    }
+  ]
+}

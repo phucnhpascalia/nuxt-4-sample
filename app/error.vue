@@ -1,6 +1,9 @@
 <script setup lang="ts">
 defineProps({
-  error: Object,
+  error: {
+    type: Object,
+    required: true, // Mark the prop as required
+  },
 });
 </script>
 

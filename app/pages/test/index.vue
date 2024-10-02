@@ -1,10 +1,8 @@
 <script lang="ts" setup>
 import { reactive, type UnwrapRef } from "vue";
-import { useTodoStore, type CreateOrUpdateTodoParams } from "~/store/todo";
+import type { CreateOrUpdateTodoParams } from "~/store/todo";
 import { useApplicationStore } from "~/store/application";
-import type { Todo } from "~/types/todos";
 import type { Rule } from "ant-design-vue/es/form";
-import find from "lodash-es/find";
 import type { FormInstance } from "ant-design-vue";
 
 definePageMeta({
@@ -15,7 +13,7 @@ const labelCol = { style: { width: "150px" } };
 const wrapperCol = { span: 14 };
 const i18n = useI18n();
 const pagination = ref({
-  position: ['topRight', 'bottomRight'],  // Show pagination controls in both header and footer
+  position: ["topRight", "bottomRight"], // Show pagination controls in both header and footer
 });
 const columns = [
   {
@@ -74,45 +72,44 @@ const applicationStore = useApplicationStore();
 const handlePageChange = (page: number) => {
   applicationStore.setCurrentPage(page);
 };
-
 </script>
 
 <template>
   <div class="bg-white">
-    <a-button
-      class="editable-add-btn"
-      style="margin-bottom: 8px"
-      @click=""
-    >
+    <a-button class="editable-add-btn" style="margin-bottom: 8px">
       {{ $t("todo.btn_add") }}
     </a-button>
     <div class="my-5 bg-table">
       <div>
-    <!-- Top Section: Button, Text, and Pagination -->
-    <div class="table-top">
-      <div class="left-controls">
-        <!-- Button on the left -->
-        <a-button type="primary">新增追加</a-button>
+        <!-- Top Section: Button, Text, and Pagination -->
+        <div class="table-top">
+          <div class="left-controls">
+            <!-- Button on the left -->
+            <a-button type="primary">新增追加</a-button>
 
-        <!-- Text on the left -->
-        <span class="pagination-text">全 123 件 (1～100件)</span>
+            <!-- Text on the left -->
+            <span class="pagination-text">全 123 件 (1～100件)</span>
+          </div>
+
+          <!-- Pagination on the right -->
+          <a-pagination
+            :current="applicationStore.currentPage"
+            :page-size="10"
+            :total="applicationStore.totalItems"
+            @change="handlePageChange"
+          />
+        </div>
       </div>
-
-      <!-- Pagination on the right -->
-      <a-pagination
-        :current="applicationStore.currentPage"
-        :pageSize="10"
-        :total="applicationStore.totalItems"
-        @change="handlePageChange"
-      />
-    </div>
-    </div>
-      <a-table :data-source="applicationStore.applications" :columns="columns" :pagination="pagination">
-        <template #bodyCell="{ column, record }">
+      <a-table
+        :data-source="applicationStore.applications"
+        :columns="columns"
+        :pagination="pagination"
+      >
+        <template #bodyCell="{ column }">
           <template v-if="column.dataIndex === 'action'">
             <div class="editable-row-operations">
               <span>
-                <a @click="">{{ $t("todo.btn_edit") }}</a>
+                <a>{{ $t("todo.btn_edit") }}</a>
               </span>
               <a-divider type="vertical" />
               <span>
@@ -120,7 +117,6 @@ const handlePageChange = (page: number) => {
                   :title="$t('todo.delete_confirm_msg')"
                   :ok-text="$t('todo.yes')"
                   :cancel-text="$t('todo.no')"
-                  @confirm=""
                 >
                   <a href="#">{{ $t("todo.btn_delete") }}</a>
                 </a-popconfirm>
@@ -137,8 +133,6 @@ const handlePageChange = (page: number) => {
       ref="modalRef"
       v-model:open="open"
       :wrap-style="{ overflow: 'hidden' }"
-      @ok=""
-      @cancel=""
     >
       <a-form
         ref="formRef"
@@ -233,10 +227,9 @@ thead .ant-table-cell {
   border-color: #d9d9d9 !important; /* Ensure hover state for arrows matches the rest */
 }
 
-.anticon{
+.anticon {
   vertical-align: unset !important;
 }
-
 
 .table-top {
   display: flex;
