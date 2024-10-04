@@ -1,10 +1,11 @@
 <script lang="ts" setup>
 import { reactive, type UnwrapRef } from "vue";
-import { useTodoStore, type CreateOrUpdateTodoParams } from "~/store/todo";
+import { useTodoStore } from "~/store/todo";
 import type { Todo } from "~/types/todos";
 import type { Rule } from "ant-design-vue/es/form";
 import find from "lodash-es/find";
 import type { FormInstance } from "ant-design-vue";
+import type { TodoRequestDTO } from "~/types/request/TodoRequestDto";
 
 definePageMeta({
   middleware: "auth",
@@ -71,7 +72,7 @@ const rules: Record<string, Rule[]> = {
 const formRef = ref<FormInstance>();
 const isEdit = ref<boolean>(false);
 const open = ref<boolean>(false);
-const formState: UnwrapRef<CreateOrUpdateTodoParams> = reactive({
+const formState: UnwrapRef<TodoRequestDTO> = reactive({
   id: undefined,
   name: "",
   priority: "",

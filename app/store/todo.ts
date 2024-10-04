@@ -1,36 +1,30 @@
 import { defineStore } from "pinia";
-import type { Todo } from "~/types/todos";
-
-export type CreateOrUpdateTodoParams = {
-  id?: number;
-  name: string;
-  priority: string;
-  completed: boolean;
-};
+import type { TodoRequestDTO } from "~/types/request/TodoRequestDto";
+import type { TodoResponseDTO } from "~/types/response/TodoResponseDto";
 
 export const useTodoStore = defineStore("todo", {
   state: () => ({
-    todos: [] as Todo[],
+    todos: [] as TodoResponseDTO[],
   }),
   actions: {
     async getAll() {
       try {
-        const data = await $fetch<Todo[]>("/api/todos");
+        const data = await $fetch<TodoResponseDTO[]>("/api/todos");
         this.todos = data;
       } catch (e) {
         console.log(e);
       }
     },
-    async create(data: CreateOrUpdateTodoParams) {
-      return await $fetch<Todo>("/api/todos", {
+    async create(data: TodoRequestDTO) {
+      return await $fetch<TodoResponseDTO>("/api/todos", {
         method: "POST",
         body: data,
       }).catch((e) => {
         console.log(e);
       });
     },
-    async update(data: CreateOrUpdateTodoParams) {
-      return await $fetch<Todo>("/api/todos", {
+    async update(data: TodoRequestDTO) {
+      return await $fetch<TodoResponseDTO>("/api/todos", {
         method: "PUT",
         body: data,
       }).catch((e) => {
